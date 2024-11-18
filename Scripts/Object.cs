@@ -5,5 +5,6 @@ class Object : RefCounted
 {
 	private bool interactable; 
 
-
+	
+	privatekey.pem
 }
