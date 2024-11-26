@@ -1,10 +1,5 @@
 namespace SpaceGame.Scripts;
 
-
-
-public class Domain {
-	
-	
-	
+public class PrimitiveTask {
 	
 }
