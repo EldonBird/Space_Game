@@ -1,8 +1,7 @@
 namespace SpaceGame.Scripts;
 
-public class HaltonSequence {
-
-	public float Sequence(int radix, int index) {
+public static class HaltonSequence {
+	public static float Sequence(int radix, int index) {
 
 		float result = 0;
 		float digitalWeight = 1;

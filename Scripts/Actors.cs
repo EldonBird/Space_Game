@@ -1,6 +1,6 @@
-namespace SpaceGame.Scripts;
 
-public class Actors : Object {
+namespace SpaceGame.Scripts;
+public partial class Actors{
 	
 	
 	

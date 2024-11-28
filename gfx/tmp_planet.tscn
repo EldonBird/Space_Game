@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://co0qnmuwjn4ox"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_dtpv0"]
+size = Vector2(40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_24scg"]
+
+[node name="TMP_Planet" type="Node"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_dtpv0")
+texture = SubResource("CompressedTexture2D_24scg")

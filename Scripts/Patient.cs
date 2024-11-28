@@ -1,7 +1,7 @@
 namespace SpaceGame.Scripts;
 
-public class Patient : Object {
-	
-	
-	
+public class Patient {
+
+    private WorldState _worldState;
+    
 }

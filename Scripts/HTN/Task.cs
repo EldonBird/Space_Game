@@ -1,10 +1,9 @@
 using System;
-using Godot;
-using Godot.Collections;
+using System.Collections.Generic;
 
 namespace SpaceGame.Scripts;
 
-public class Task : RefCounted {
+public class Task{
 
 	public enum Result {
 		
@@ -26,13 +25,13 @@ public class Task : RefCounted {
 	}
 
 	// this is the same as the "Apply_Output" but it is just a counting of what will be done for the HTN PLanner, Eldon
-	private Dictionary _output() {
+	private Dictionary<Enum, String> _output() {
 		return null;
 	}
 
 	
 	// Conditions are the "inputs" for the task, 'Prerequisites', Eldon
-	public Dictionary Conditions() {
+	public Dictionary<Enum, String> Conditions() {
 
 
 		return null;
