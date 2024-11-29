@@ -1,4 +1,4 @@
-namespace SpaceGame.Scripts;
+namespace SpaceGame.Scripts.HTN;
 
 public class ComplexTask {
 	

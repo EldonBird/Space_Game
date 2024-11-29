@@ -1,5 +1,9 @@
 namespace SpaceGame.Scripts.HTN;
 
-public class PrimitiveTask {
+public class Planner {
+	
+	
+	
+	
 	
 }

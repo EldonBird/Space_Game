@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SpaceGame.Scripts;
+namespace SpaceGame.Scripts.HTN;
 
 public class Task{
 
@@ -33,8 +33,8 @@ public class Task{
 	// Conditions are the "inputs" for the task, 'Prerequisites', Eldon
 	public Dictionary<Enum, String> Conditions() {
 
-
 		return null;
+		
 	}
 
 	

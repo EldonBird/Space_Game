@@ -9,9 +9,11 @@ public partial class Client : Node {
 
 
     private static string GenerateNewToken() {
-    
+        
+        
         char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".ToCharArray();
-    
+        
+        
         Random rand = new Random();
         string randomToken = "";
         for (int i = 0; i < 10; i++) {
