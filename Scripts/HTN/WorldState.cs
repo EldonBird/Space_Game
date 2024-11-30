@@ -6,28 +6,33 @@ using System;
 
 public partial class WorldState {
 
+	
+	// State key is for anything a player might contain, for example if you have an item, the state key would be "item" and the Variant would the the item id... , Eldon
 	public enum StateKey {
-		Hunger, 
-		Panicked,
+		Health,
+		Hunger,
+		Fatigue,
+		Money,
 		
 	}
 	
-	private Dictionary<StateKey, string> _state;
+	private Dictionary<StateKey, Variant> _state;
 
-	public WorldState(Dictionary<StateKey, string> state) {
+	public WorldState(Dictionary<StateKey, Variant> state) {
 		_state = state;
 	}
 
-	public bool set_value(Enum state_key, Variant value) {
+	public bool set_value(StateKey key, Variant value) {
 
-		if (_state.TryGetValue(state_key, out) == value) {
-			return true;
-		}
-		
+		_state[key] = value;
+		return false;
+
 	}
 
 	public Variant Get_value(StateKey key, Variant defaultValue) {
+		
 		return _state.GetValueOrDefault(key, defaultValue.ToString());
+		
 	}
 
 	public WorldState Duplicate() {
