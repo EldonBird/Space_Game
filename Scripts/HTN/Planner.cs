@@ -13,7 +13,9 @@ public class Planner {
 	// the planning logic will be in this funciton, 
 	public void Plan() {
 		
+		
 		planQueue.Append(new Task());
+		
 		
 	}
 
