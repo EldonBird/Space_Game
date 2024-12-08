@@ -29,11 +29,13 @@ public class Planner {
 	}
 
 	public Task[] GetAvailableTasks() {
+
+		// this needs to be updated
 		
-		
-		
-		
-		
+		return new Task[0];
+
+
+
 	}
 	
 	
