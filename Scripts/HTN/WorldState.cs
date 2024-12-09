@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Godot;
 using Godot.Collections;
 using SpaceGame.Scripts.HTN;
@@ -15,16 +14,27 @@ public partial class WorldState {
 		Hunger,
 		Energy,
 		Money,
-		
+		Joy,
+	}
+
+	public enum ItemType {
+		Equipment,
+		Consumable,
+		Resource,
+		Miscellaneous,
 	}
 	
-	private System.Collections.Generic.Dictionary<StateKey, Variant> _state; // this is the saved state that you will call from functions, later I will make it so you can only grab this with permissions, Eldon
+	private Dictionary<StateKey, Variant> _state; // this is the saved state that you will call from functions, later I will make it so you can only grab this with permissions, Eldon
 
+	private Dictionary<ItemType, >
 	
 	// Creates the initial State for an object. In the future I may have spesific World states for different types of actors/patients, but for now this will work.
-	public WorldState(System.Collections.Generic.Dictionary<StateKey, Variant> state) {
+	public WorldState(Dictionary<StateKey, Variant> state) {
 
 		_state = state;
+		
+		
+		// you may need to include logic in the case of a null state... but I'll leave that for another time, Eldon
 		
 	}
 

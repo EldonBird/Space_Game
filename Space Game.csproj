@@ -6,4 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>SpaceGame</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\HTN\Complex\" />
+  </ItemGroup>
 </Project>
