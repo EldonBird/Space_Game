@@ -12,9 +12,16 @@ public partial class PrimitiveTask : Task{
 		if (true) {
 			return false;
 		}
-
-
+		
 		return true;
+	}
+
+	public Dictionary<WorldState.StateKey, Variant> Prerequisites() {
+		
+		Dictionary<WorldState.StateKey, Variant> prerequisites = new Dictionary<WorldState.StateKey, Variant>();
+		
+		return prerequisites;
+		
 	}
 
 	public Dictionary<WorldState.StateKey, Variant> Effects() {
@@ -23,17 +30,21 @@ public partial class PrimitiveTask : Task{
 
 	}
 
-	public void ApplyEffects(WorldState worldState) {
+	public WorldState ApplyEffects(WorldState worldState) {
 
+		WorldState tmpState = worldState.Duplicate();
+		
 		foreach (var item in Effects()) {
 			
-			worldState.set_value(item.Key, item.Value);
+			tmpState.set_value(item.Key, item.Value);
 			
 		}
-		
+
+		return tmpState;
+
 	}
 	
-	public Dictionary
+	
 	
 	
 }
