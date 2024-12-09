@@ -1,5 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
-using Godot.Collections;
 using SpaceGame.Scripts.HTN;
 
 namespace SpaceGame.Scripts;
@@ -16,20 +17,30 @@ public partial class WorldState {
 		Money,
 		Joy,
 	}
+	
+	
+	private Godot.Collections.Dictionary<StateKey, Variant> _state; // this is the saved state that you will call from functions, later I will make it so you can only grab this with permissions, Eldon
 
-	public enum ItemType {
-		Equipment,
-		Consumable,
-		Resource,
-		Miscellaneous,
+	private List<Item> _items { get; }
+
+	public void add_item(Item item) {
+		if (item == null) {
+			GD.PrintErr("Cant Add Null Item");
+			return;
+		}
+		_items.Append(item);
+	}
+
+	public void Remove_Item(Item item) {
+		if(item == null) { 
+			Console.WriteLine("Cannot Remove Null Item");
+			return;
+		}
+		_items.Remove(item);
 	}
 	
-	private Dictionary<StateKey, Variant> _state; // this is the saved state that you will call from functions, later I will make it so you can only grab this with permissions, Eldon
-
-	private Dictionary<ItemType, >
-	
 	// Creates the initial State for an object. In the future I may have spesific World states for different types of actors/patients, but for now this will work.
-	public WorldState(Dictionary<StateKey, Variant> state) {
+	public WorldState(Godot.Collections.Dictionary<StateKey, Variant> state) {
 
 		_state = state;
 		
