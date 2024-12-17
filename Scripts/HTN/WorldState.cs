@@ -14,21 +14,22 @@ public partial class WorldState {
 		Health,
 		Hunger,
 		Energy,
-		Money,
 		Joy,
 	}
 	
 	
 	private Godot.Collections.Dictionary<StateKey, Variant> _state; // this is the saved state that you will call from functions, later I will make it so you can only grab this with permissions, Eldon
 
-	private List<Item> _items { get; }
+	private Item[] _items; // just an array of items, Eldon
 
 	public void add_item(Item item) {
 		if (item == null) {
 			GD.PrintErr("Cant Add Null Item");
 			return;
 		}
+
 		_items.Append(item);
+		
 	}
 
 	public void Remove_Item(Item item) {
@@ -36,24 +37,36 @@ public partial class WorldState {
 			Console.WriteLine("Cannot Remove Null Item");
 			return;
 		}
-		_items.Remove(item);
+
+		List<Item> _remain = new List<Item>();
+		
+		for (int i = 0; i < _items.Length; i++) {
+
+			if (_items[i] != item) {
+				_remain.Append(_items[i]);
+			}
+		}
+		_items = _remain.ToArray();
 	}
+
+	public Item[] Get_Items() {
+		return _items;
+	}
+	
+	
 	
 	// Creates the initial State for an object. In the future I may have spesific World states for different types of actors/patients, but for now this will work.
 	public WorldState(Godot.Collections.Dictionary<StateKey, Variant> state) {
 
 		_state = state;
 		
-		
 		// you may need to include logic in the case of a null state... but I'll leave that for another time, Eldon
 		
 	}
 
-	public bool set_value(StateKey key, Variant value) {
+	public void set_value(StateKey key, Variant value) {
 
 		_state[key] = value;
-
-		return true;
 
 	}
 
@@ -61,6 +74,12 @@ public partial class WorldState {
 
 		return _state[key];
 
+	}
+
+	// Only use this when actually accessing the state, not to get the internal state,
+	// I.E, dont use this to interact with the system, use this in the internal process after accessesing the worldstate duplicated, etc. Eldon
+	public Godot.Collections.Dictionary<StateKey, Variant>  Get_State() { 
+		return _state;
 	}
 
 	public WorldState Duplicate() {
