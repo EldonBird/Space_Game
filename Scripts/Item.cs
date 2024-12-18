@@ -11,14 +11,20 @@ public class Item {
 		Miscellaneous,
 	}
 
-	private String name = "Null Name";
-
-	private int Value;
+	private String _name { get; }
 	
-	private String description = "Null Description";
-	
+	private String _description { get;  }
 
-	public Item(String name) {
+	private int _id { get; }
+
+	private int _value { get; }
+
+	public Item(String name, String description, int id, int value) {
+		
+		_name = name;
+		_description = description;
+		_id = id;
+		_value = value;
 		
 	}
 

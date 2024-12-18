@@ -1,6 +1,13 @@
+using System;
+using System.Collections.Generic;
+using Godot;
+
 namespace SpaceGame.Scripts.Generation;
 using System.Numerics;
-public class Galaxy {
+
+public partial class Galaxy {
+	
+	private Planet[] _allplanets { get; set; }
 
 	public Galaxy(float sizeX, float sizeY, int planetNum) {
 
@@ -12,8 +19,28 @@ public class Galaxy {
 			Vector2 position = new(x, y);
 
 			Planet p = new Planet(position, i);
+			
+			GD.Print(position.ToString());
+			
 
 		}
 
 	}
+
+
+	public Planet[] Gabriel(Planet planet) {
+		
+		List<Planet> neighbors = new List<Planet>();
+
+		for (int i = 0; i < _allplanets.Length - 1; i++) {
+
+			if (_allplanets[i] == planet) { continue; }
+			
+			
+			
+		}
+		
+		return neighbors.ToArray();
+	}
+	
 }

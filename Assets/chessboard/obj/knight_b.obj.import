@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b4e3js32up6rt"
+path="res://.godot/imported/knight_b.obj-58a7678d90180c6856633c8b4218b92c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/knight_b.obj-58a7678d90180c6856633c8b4218b92c.mesh"]
+
+source_file="res://Assets/chessboard/obj/knight_b.obj"
+dest_files=["res://.godot/imported/knight_b.obj-58a7678d90180c6856633c8b4218b92c.mesh", "res://.godot/imported/knight_b.obj-58a7678d90180c6856633c8b4218b92c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
