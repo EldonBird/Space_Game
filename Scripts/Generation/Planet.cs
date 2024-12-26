@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace SpaceGame.Scripts.Generation;
 
-public class Planet : Patient {
+public partial class Planet : Patient {
     
     private int _index;
     private Vector2 _position;
@@ -16,6 +16,11 @@ public class Planet : Patient {
         _index = index;
         
         Console.WriteLine(index + ": " + _position);
+    }
+    
+    public Vector2 GetPosition()
+    {
+        return _position;
     }
     
     

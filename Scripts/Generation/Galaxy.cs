@@ -26,6 +26,8 @@ public partial class Galaxy {
 		}
 
 	}
+	
+	
 
 
 	public Planet[] Gabriel(Planet planet) {
@@ -36,8 +38,23 @@ public partial class Galaxy {
 
 			if (_allplanets[i] == planet) { continue; }
 			
-			
-			
+			// find the center point, and the radius of the circle.
+
+			Vector2 tmpPos = _allplanets[i].GetPosition();
+
+			Double distance = Mathf.Sqrt(Mathf.Pow((planet.GetPosition().X - _allplanets[i].GetPosition().X), 2) + MathF.Pow((planet.GetPosition().Y - _allplanets[i].GetPosition().Y), 2));
+
+			Double XCoordinate = (planet.GetPosition().X - _allplanets[i].GetPosition().X) / 2;
+			Double YCoordinate = (planet.GetPosition().Y - _allplanets[i].GetPosition().Y) / 2;
+
+			bool valid = false;
+
+			for (int j = 0; j < _allplanets.Length - 1; j++) {
+				
+				
+				
+			}
+
 		}
 		
 		return neighbors.ToArray();
