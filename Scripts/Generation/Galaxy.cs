@@ -9,8 +9,12 @@ public partial class Galaxy {
 	
 	private Planet[] _allplanets { get; set; }
 
+	
+	
 	public Galaxy(float sizeX, float sizeY, int planetNum) {
-
+		
+		//Phase 1 Local generation
+		
 		for (var i = 0; i < planetNum; i++) {
 
 			float x = (HaltonSequence.Sequence(2, i) - 0.5f) * sizeX;
@@ -20,9 +24,17 @@ public partial class Galaxy {
 
 			Planet p = new Planet(position, i);
 			
-			GD.Print(position.ToString());
-			
 
+		}
+		
+		// phase 2, "global" generation
+
+		foreach (var planet in _allplanets) {
+			
+			planet.SetNeighbors(Gabriel(planet));
+			
+			
+			
 		}
 
 	}
@@ -30,34 +42,48 @@ public partial class Galaxy {
 	
 
 
+	// this function returns all "gabriel" neighbors to create a network.
 	public Planet[] Gabriel(Planet planet) {
 		
 		List<Planet> neighbors = new List<Planet>();
+		
+		
+		for (int i = 0; i < _allplanets.Length; i++) {
 
-		for (int i = 0; i < _allplanets.Length - 1; i++) {
+			Vector2 center;
+			center.X = (_allplanets[i].GetPosition().X + planet.GetPosition().X ) / 2;
+			center.Y = (_allplanets[i].GetPosition().Y + planet.GetPosition().Y ) / 2;
 
-			if (_allplanets[i] == planet) { continue; }
-			
-			// find the center point, and the radius of the circle.
+			float radius = GetDistace(_allplanets[i], planet) / 2;
 
-			Vector2 tmpPos = _allplanets[i].GetPosition();
+			bool match = true;
 
-			Double distance = Mathf.Sqrt(Mathf.Pow((planet.GetPosition().X - _allplanets[i].GetPosition().X), 2) + MathF.Pow((planet.GetPosition().Y - _allplanets[i].GetPosition().Y), 2));
+			foreach (var p in _allplanets) {
 
-			Double XCoordinate = (planet.GetPosition().X - _allplanets[i].GetPosition().X) / 2;
-			Double YCoordinate = (planet.GetPosition().Y - _allplanets[i].GetPosition().Y) / 2;
-
-			bool valid = false;
-
-			for (int j = 0; j < _allplanets.Length - 1; j++) {
-				
-				
-				
+				if (GetDistace(p, planet) <= radius) {
+					
+					match = false;
+					
+				}
 			}
 
+			if (match) {
+				neighbors.Add(_allplanets[i]);
+			}
+			
 		}
 		
+		
+		
 		return neighbors.ToArray();
+	}
+
+	
+	// im lazy
+	private float GetDistace(Planet planet1, Planet planet2) {
+		
+		return MathF.Sqrt(Mathf.Pow((planet1.GetPosition().X - planet2.GetPosition().X), 2) + Mathf.Pow((planet1.GetPosition().Y - planet2.GetPosition().Y), 2));
+
 	}
 	
 }
