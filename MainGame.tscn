@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bup7pgv15bv0g"]
+[gd_scene load_steps=2 format=3 uid="uid://bup7pgv15bv0g"]
 
-[ext_resource type="Script" path="res://Scripts/Network/NetworkManager.cs" id="1_nv3od"]
-[ext_resource type="Script" path="res://Temporary.cs" id="2_oplvl"]
+[ext_resource type="Script" path="res://Scripts/TempOutput.cs" id="1_dv6ay"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_nv3od")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -22,4 +20,6 @@ layout_mode = 0
 offset_right = 434.0
 offset_bottom = 370.0
 text = "HIYA"
-script = ExtResource("2_oplvl")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_dv6ay")

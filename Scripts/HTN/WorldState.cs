@@ -16,6 +16,8 @@ public partial class WorldState {
 		Energy,
 		Joy,
 	}
+
+	private int _money { get; set; }
 	
 	
 	private Godot.Collections.Dictionary<StateKey, Variant> _state; // this is the saved state that you will call from functions, later I will make it so you can only grab this with permissions, Eldon
