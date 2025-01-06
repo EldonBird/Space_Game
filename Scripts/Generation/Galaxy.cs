@@ -26,7 +26,7 @@ public partial class Galaxy {
 			
 
 		}
-		
+																						
 		// phase 2, "global" generation
 
 		foreach (var planet in _allplanets) {

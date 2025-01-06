@@ -5,11 +5,14 @@ namespace SpaceGame.Scripts.Generation;
 
 public partial class Planet : Patient {
     
+    private String name { get; set; }
+    
     private int _index;
     private Vector2 _position;
     
     private Planet[] neighbors;
-    
+
+    private Area[] _areas { get; set; }
     
     public Planet(Vector2 position, int index) {
         _position = position;
